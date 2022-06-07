@@ -1,8 +1,8 @@
-import service.VideoService;
+import view.RudyRentalSystem;
 
 public class Main {
     public static void main(String[] args) {
-        VideoService videoService = new VideoService();
-        videoService.getAllVideo();
+        RudyRentalSystem rudyRentalSystem = new RudyRentalSystem();
+        rudyRentalSystem.ui();
     }
 }
