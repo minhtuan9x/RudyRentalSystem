@@ -13,23 +13,23 @@ public class RudyRentalSystem {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("=======================");
-            System.out.println("1. Show");
-            System.out.println("2. Update");
-            System.out.println("3. Nhap thong tin");
+            System.out.println("1. Nhap thong tin");
+            System.out.println("2. In thong tin");
+            System.out.println("3. Find and update by serial");
             System.out.println("4. Exit!!!");
             System.out.println("====Moi chon menu====");
             int chon = scanner.nextInt();
             switch (chon) {
                 case 1:
-                    thingService.showAllThing();
+                    thingService.save();
                     break;
                 case 2:
+                    thingService.showAllThing();
+                    break;
+                case 3:
                     System.out.println("Nhap serial: ");
                     Long serial = scanner.nextLong();
                     thingService.findBySerialAndUpdate(serial);
-                    break;
-                case 3:
-                    thingService.save();
                     break;
                 case 4:
                     return;

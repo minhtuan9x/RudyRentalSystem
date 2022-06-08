@@ -21,11 +21,14 @@ public class BookOnTapeImpl implements BookOnTapeRepository {
 
     @Override
     public void save(BookOnTape bookOnTape) {
+
         try {
+            entityManager.getTransaction().begin();
             if (Objects.isNull(bookOnTape.getSerialNumber()))
                 entityManager.persist(bookOnTape);
             else
                 entityManager.merge(bookOnTape);
+            entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

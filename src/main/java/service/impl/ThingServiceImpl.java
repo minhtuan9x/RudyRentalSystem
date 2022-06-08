@@ -28,11 +28,11 @@ public class ThingServiceImpl implements ThingService {
         List<BookOnTape> bookOnTapes = bookOnTapeRepository.getAllBookOnTape();
 
         System.out.println("List furniture: ");
-        furnitures.forEach(System.out::println);
+        furnitures.forEach(Furniture::getDescription);
         System.out.println("List video: ");
-        videos.forEach(System.out::println);
+        videos.forEach(Video::getDescription);
         System.out.println("List book on tape: ");
-        bookOnTapes.forEach(System.out::println);
+        bookOnTapes.forEach(BookOnTape::getDescription);
     }
 
     @Override

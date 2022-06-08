@@ -1,13 +1,11 @@
 package repository.impl;
 
 import model.Furniture;
-import model.Video;
 import repository.FurnitureRepository;
 import util.JpaUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,15 +21,16 @@ public class FurnitureRepositoryImpl implements FurnitureRepository {
 
     @Override
     public void save(Furniture furniture) {
+        entityManager.getTransaction().begin();
         try {
             if (Objects.isNull(furniture.getSerialNumber()))
                 entityManager.persist(furniture);
             else
                 entityManager.merge(furniture);
+            entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

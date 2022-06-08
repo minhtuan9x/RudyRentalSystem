@@ -6,11 +6,10 @@ import util.JpaUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 
-@Transactional
+
 public class VideoRepositoryImpl implements VideoRepository {
     private final EntityManager entityManager = JpaUtils.getEntityManagerFactory().createEntityManager();
 
@@ -21,11 +20,13 @@ public class VideoRepositoryImpl implements VideoRepository {
 
     @Override
     public void save(Video video) {
+        entityManager.getTransaction().begin();
         try {
             if (Objects.isNull(video.getSerialNumber()))
                 entityManager.persist(video);
             else
                 entityManager.merge(video);
+            entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }

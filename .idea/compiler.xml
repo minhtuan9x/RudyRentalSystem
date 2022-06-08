@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="quan" />
         <module name="exercise" />
+        <module name="RudyRentalSystem" />
       </profile>
     </annotationProcessing>
   </component>
