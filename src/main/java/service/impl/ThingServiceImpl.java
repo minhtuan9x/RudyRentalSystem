@@ -28,11 +28,11 @@ public class ThingServiceImpl implements ThingService {
         List<BookOnTape> bookOnTapes = bookOnTapeRepository.getAllBookOnTape();
 
         System.out.println("List furniture: ");
-        furnitures.forEach(Furniture::getDescription);
+        furnitures.forEach(item-> System.out.println(item.getDescription()));
         System.out.println("List video: ");
-        videos.forEach(Video::getDescription);
+        videos.forEach(item-> System.out.println(item.getDescription()));
         System.out.println("List book on tape: ");
-        bookOnTapes.forEach(BookOnTape::getDescription);
+        bookOnTapes.forEach(item-> System.out.println(item.getDescription()));
     }
 
     @Override
@@ -43,12 +43,12 @@ public class ThingServiceImpl implements ThingService {
         video = (Video) input(video);
         videoRepository.save(video);
         System.out.println("saved video!!");
-        System.out.println("2. Book");
+        System.out.println("2. Furniture");
         Furniture furniture = new Furniture();
         furniture = (Furniture) input(furniture);
         furnitureRepository.save(furniture);
         System.out.println("saved furniture!!");
-        System.out.println("3. Furniture");
+        System.out.println("3. BookS");
         BookOnTape bookOnTape = new BookOnTape();
         bookOnTape = (BookOnTape) input(bookOnTape);
         bookOnTapeRepository.save(bookOnTape);
